@@ -1,15 +1,61 @@
 'use client'
 
 import { Check, Eye, EyeClosed, Lock, Mail, PointerOffIcon, User } from "lucide-react"
-import { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { FaFacebook, FaGoogle } from "react-icons/fa"
 
 
 
 
+
+
+interface SignUpForm {
+    userName: string,
+    email: string,
+    password: string,
+    confirmPassword: string
+};
+
+
+const empty: SignUpForm = {
+    userName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+};
+
+
 export default function SignUp() {
 
     const [showPassword, setShowPassword] = useState(false);
+
+    const [signUpForm, setSignUpForm] = useState(empty);
+    const [isPasswordMatch, setIsPasswordMatch] = useState(false);
+
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSignUpForm({
+            ...signUpForm, [e.target.name]: e.target.value
+        })
+    };
+
+
+    useEffect(() => {
+
+        const confirmPassword = (form: SignUpForm) => {
+
+
+            if (form.confirmPassword === form.password && form.confirmPassword !== '') {
+                setIsPasswordMatch(true);
+            } else {
+                setIsPasswordMatch(false);
+            }
+        };
+
+        confirmPassword(signUpForm);
+
+
+    }, [signUpForm.confirmPassword, signUpForm.password]);
 
 
 
@@ -47,7 +93,12 @@ export default function SignUp() {
                     <User className="absolute ml-3" />
                     <input type="text" placeholder={'User Name'}
                         className="p-2  ml-8 outline-none  rounded
-                    border-gray-400 w-full" />
+                    border-gray-400 w-full"
+                        onChange={handleChange}
+                        value={signUpForm.userName}
+                        name="userName"
+
+                    />
                 </div>
 
 
@@ -56,7 +107,12 @@ export default function SignUp() {
                     <Mail className="absolute ml-3" />
                     <input type="text" placeholder={'Email'}
                         className="p-2  ml-8 outline-none  rounded
-                    border-gray-400 w-full" />
+                    border-gray-400 w-full"
+                        onChange={handleChange}
+                        value={signUpForm.email}
+                        name="email"
+
+                    />
                 </div>
 
                 <div className="w-[90%] relative flex items-center mt-5 border rounded
@@ -66,7 +122,12 @@ export default function SignUp() {
 
                         placeholder={'Password'}
                         className="p-2  ml-8 outline-none  rounded
-                    border-gray-400 w-full" />
+                    border-gray-400 w-full"
+                        onChange={handleChange}
+                        value={signUpForm.password}
+                        name="password"
+
+                    />
 
 
                     {
@@ -81,15 +142,32 @@ export default function SignUp() {
 
                 <div className="w-[90%] relative flex items-center mt-5 border rounded
                 border-gray-300">
-                    <Check className="absolute ml-3" />
+                    {
+                        isPasswordMatch ? <Check className="absolute ml-3 text-green-400" />
+                            : <Check className="absolute ml-3 text-red-500" />
+                    }
+
                     <input type="password" placeholder={'Confirm Password'}
                         className="p-2  ml-8 outline-none  rounded
-                    border-gray-400 w-full" />
+                    border-gray-400 w-full"
+                        onChange={handleChange}
+                        name="confirmPassword"
+                        value={signUpForm.confirmPassword}
+
+                    />
+
                 </div>
 
 
-                <button className="w-[90%] border mt-8 p-2 rounded border-gray-300 bg-gray-200
-                cursor-pointer">Sign Up</button>
+                <button className={`w-[90%] border mt-8 p-2 rounded border-gray-300 
+                ${isPasswordMatch ? 'cursor-pointer' : 'cursor-not-allowed'}
+                ${isPasswordMatch ? 'bg-green-400' : 'bg-gray-200'}
+                `}
+                    disabled={isPasswordMatch ? false : true}
+
+                >
+                    Sign Up
+                </button>
 
 
 
