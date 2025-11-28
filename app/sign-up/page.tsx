@@ -1,5 +1,6 @@
 'use client'
 
+import { Supabase } from "@/lib/supabaseClient"
 import { Check, Eye, EyeClosed, Lock, Mail, PointerOffIcon, User } from "lucide-react"
 import React, { useEffect, useState } from "react"
 import { FaFacebook, FaGoogle } from "react-icons/fa"
@@ -56,6 +57,43 @@ export default function SignUp() {
 
 
     }, [signUpForm.confirmPassword, signUpForm.password]);
+
+
+    const handleSignUp = async () => {
+        const { userName, email, password, confirmPassword } = signUpForm;
+
+        if (!userName || !email || !password) {
+            return window.alert("Fill out all neccessary details!");
+
+        }
+
+        const { data: authData, error: authError } = await Supabase.auth.signUp({
+            email,
+            password: confirmPassword
+        });
+
+
+        if (authError) {
+            console.error("Sgn Up Error: ", authError);
+            return;
+        } else {
+            console.log("Auth : ", authData);
+        };
+
+
+        const user = authData.user;
+
+        if (user) {
+            const { error: updateError } = await Supabase.from('userInformation').insert({
+                user_name: userName,
+            });
+
+            if (updateError) {
+                console.error("Update error: ", updateError);
+            }
+        }
+
+    }
 
 
 
@@ -165,6 +203,7 @@ export default function SignUp() {
                 `}
                     disabled={isPasswordMatch ? false : true}
 
+                    onClick={handleSignUp}
                 >
                     Sign Up
                 </button>
