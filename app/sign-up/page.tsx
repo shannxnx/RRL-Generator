@@ -4,7 +4,7 @@ import { Supabase } from "@/lib/supabaseClient"
 import { Check, Eye, EyeClosed, Lock, Mail, PointerOffIcon, User } from "lucide-react"
 import React, { useEffect, useState } from "react"
 import { FaFacebook, FaGoogle } from "react-icons/fa"
-
+import { Metadata } from "next"
 
 
 
@@ -24,6 +24,10 @@ const empty: SignUpForm = {
     password: '',
     confirmPassword: ''
 };
+
+
+
+
 
 
 export default function SignUp() {
