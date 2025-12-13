@@ -13,13 +13,10 @@ import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 
 
+
 export default function SignIn() {
 
     const [showPassword, setShowPassword] = useState(false);
-
-
-
-
 
 
 
@@ -27,9 +24,24 @@ export default function SignIn() {
 
         <div className="max-w-md w-[400px] border lg:h-[550px] rounded bg-white border-none shadow-md p-8
         flex flex-col items-center">
-            <h1 className="lg:font-bold text-3xl mt-15">Welcome Back!</h1>
 
-            <div className="w-[90%] h-[45px]  mt-5 flex justify-between">
+            {
+
+                <div className="w-full mb-10  pl-4">
+                    <h1 className="lg:font-bold text-3xl ">Welcome Back!</h1>
+                    <p className="text-[14px]">Please enter your details</p>
+                </div>
+
+
+            }
+
+            <div className="w-full border">
+
+            </div>
+
+            {
+                /*
+                <div className="w-[90%] h-[45px]  mt-5 flex justify-between">
 
                 <button className="bg-[#EA4335] w-[48%] rounded cursor-pointer flex items-center justify-center
                     shadow-md">
@@ -44,13 +56,17 @@ export default function SignIn() {
                 </button>
 
             </div>
-
-            <div className="w-full flex items-center justify-center">
-                <p className="text-[14px] text-gray-400 mt-5">Or log in with email</p>
-            </div>
+                */
+            }
 
 
-            <div className="w-[90%] relative flex items-center lg:mt-10 border rounded
+
+
+
+
+
+
+            <div className="w-[90%] relative flex items-center lg:mt-10 border rounded 
                 border-gray-300">
 
                 <Mail className="absolute ml-3" />
@@ -62,6 +78,7 @@ export default function SignIn() {
 
                 />
             </div>
+
 
 
             <div className="w-[90%] relative flex items-center lg:mt-5 border rounded
@@ -84,10 +101,44 @@ export default function SignIn() {
 
 
             <button
-                className={`w-[90%] border mt-8 p-2 rounded border-gray-300 `}
+                className={`w-[90%] border mt-8 p-2 rounded border-gray-300 
+                    cursor-pointer`}
             >
                 Login
             </button>
+
+
+            {
+
+                <div className="w-full flex items-center justify-center">
+                    <p className="text-[14px] text-gray-400 mt-5">Or</p>
+                </div>
+
+            }
+
+            {
+
+                <div className="w-[90%] h-[45px]  mt-5 flex justify-between">
+
+                    <button className="bg-[#EA4335] w-[48%] rounded cursor-pointer flex items-center justify-center
+                    shadow-md">
+                        <FaGoogle className="text-[20px] text-white" />
+                    </button>
+
+
+
+                    <button className="w-[48%] rounded cursor-pointer flex items-center justify-center
+                    bg-[#1877F2] shadow-md ">
+                        <FaFacebook className="text-[20px] text-white" />
+                    </button>
+
+                </div>
+
+            }
+
+            <h2 className="text-[12px] mt-5 text-gray-500">Don't have an acount? <span className="text-green-400 cursor-pointer">Sign-up</span></h2>
+
+
 
 
 
