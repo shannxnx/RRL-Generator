@@ -16,11 +16,21 @@ export default function Navbar() {
 
 
         {
-            isLoggedIn ? <User2Icon className="text-green-400 text-2xl ml-10  border-green-400  border w-12 h-12 
-            rounded-[900]" />
-                : <h1 className="text-2xl text-black ml-10 border rounded-[900] w-[54px] h-[54px]
-        flex items-center justify-center bg-white cursor-pointer">RRL</h1>
+            //isLoggedIn ? <User2Icon className="text-green-400 text-2xl ml-10  border-white  border w-12 h-12 
+            //rounded-[900] cursor-pointer" />
+            //    : <h1 className="text-2xl text-black ml-10 border rounded-[900] w-[54px] h-[54px]
+            //flex items-center justify-center bg-white cursor-pointer">RRL</h1>
+
+
         }
+
+        <div className="w-[100px]  h-full justify-center flex items-center border-white">
+            <div className="size-12 rounded-tl-2xl flex justify-center items-center
+          bg-green-400 ">
+                <h1 className="text-2xl">R</h1>
+            </div>
+        </div>
+
 
         <ul className="flex gap-10 mr-10">
             <li className="text-white lg:text-[20px] cursor-pointer hover:text-gray-400">Pricing</li>
