@@ -1,4 +1,4 @@
-import { Book, Settings, User2Icon } from "lucide-react";
+import { Book, Library, Settings, User2Icon } from "lucide-react";
 import { MouseEventHandler, useState } from "react";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 
@@ -17,8 +17,8 @@ export default function SideNav() {
     }
 
 
-    return <nav className={` h-full items-center border border-gray-300 lg:flex lg:flex-col p-3
-        hidden relative duration-200 ${longNav ? "w-[250px]" : "w-[75px]"}`}>
+    return <nav className={` h-full items-center border-gray-300 lg:flex lg:flex-col p-3
+        hidden relative duration-200 ${longNav ? "w-[250px]" : "w-[75px]"} border`}>
 
         <div className="size-12 rounded-[500px] flex justify-center items-center
            mb-10 border-black bg-black cursor-pointer ">
@@ -36,6 +36,14 @@ export default function SideNav() {
 
                 </li>
 
+
+                <li className="cursor-pointer hover:text-green-500 flex">
+                    <Library className="size-8" />
+                    {
+                        longNav ? <h1 className="text-2xl">Library</h1> : null
+                    }
+                </li>
+
                 <li className="cursor-pointer hover:text-green-500 flex">
                     <Settings className="size-8" />
                     {
@@ -43,6 +51,8 @@ export default function SideNav() {
                     }
 
                 </li>
+
+
             </ul>
 
 
