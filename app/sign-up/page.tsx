@@ -215,7 +215,7 @@ export default function SignUp() {
 
 
             </div>
-            <p className="text-[12px] mt-2">Already have an account? <span className="text-blue-400 cursor-pointer">Sign In</span>
+            <p className="text-[12px] mt-2">Already have an account? <a href="/log-in"><span className="text-blue-400 cursor-pointer">Log In</span></a>
             </p>
         </div>
     </main>

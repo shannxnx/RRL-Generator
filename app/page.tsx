@@ -1,6 +1,7 @@
 'use client'
 
 import Navbar from "@/components/Navbar";
+import SideNav from "@/components/SideNav";
 import { Book, Settings, User2Icon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -8,7 +9,7 @@ import { useState } from "react";
 export default function Home() {
 
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
 
 
@@ -17,26 +18,7 @@ export default function Home() {
 
 
       {
-        isLoggedIn ? <nav className="w-[75px] h-full items-center border border-gray-300 flex flex-col p-3
-        ">
-
-          <div className="size-12 rounded-[500px] flex justify-center items-center
-           mb-10 border-black bg-black cursor-pointer">
-            <User2Icon className="size-8 text-white" />
-          </div>
-
-
-          <div className="w-full flex flex-col items-center ">
-            <ul className="flex flex-col gap-5">
-              <li className="cursor-pointer hover:text-green-500"><Book className="size-8" /></li>
-              <li className="cursor-pointer hover:text-green-500"><Settings className="size-8" /></li>
-            </ul>
-
-
-          </div>
-
-
-        </nav>
+        isLoggedIn ? <SideNav />
           : null
       }
 

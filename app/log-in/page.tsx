@@ -136,7 +136,7 @@ export default function SignIn() {
 
             }
 
-            <h2 className="text-[12px] mt-5 text-gray-500">Don't have an acount? <span className="text-green-400 cursor-pointer">Sign-up</span></h2>
+            <h2 className="text-[12px] mt-5 text-gray-500">Don't have an acount? <a href="/sign-up"><span className="text-green-400 cursor-pointer">Sign-up</span></a></h2>
 
 
 
