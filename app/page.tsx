@@ -1,10 +1,66 @@
 'use client'
 
 import Navbar from "@/components/Navbar";
+import PricingCard from "@/components/PricingCard";
 import SideNav from "@/components/SideNav";
 import { Book, Settings, User2Icon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+
+
+interface cardProps {
+  tier: string,
+  price?: string,
+  benefits?: string[]
+};
+
+
+
+const freeTier: cardProps = {
+  tier: 'Free',
+  price: '0',
+  benefits: [
+    ' 🔍 5 RRL searches every 3 days',
+    ' 📚 Up to 5 related studies per search',
+    ' 🧠 Basic abstracts only (no AI rewrite)',
+    ' 💾 Save up to 5 studies'
+  ]
+};
+
+const miniTier: cardProps = {
+  tier: 'Mini',
+  price: '2',
+  benefits: [
+    ' 🔓 Unlimited RRL searches',
+    ' 📚 Up to 5–10 studies per search',
+    ' 🧠 AI-generated summaries',
+    ' 💾 Save unlimited studies',
+    ' 📄 Copy-ready RRL text'
+
+  ]
+};
+
+
+const proTier: cardProps = {
+  tier: 'Pro',
+  price: '5',
+  benefits: [
+    '⚡Everything in Mini',
+    '📚 10–15 studies per search',
+    '🧠 Detailed academic summaries ',
+    '📄 Export to Word / PDF',
+    '🧾 APA/MLA citation formatting',
+    '🚀 Priority processing'
+  ]
+}
+
+
+
+
+
+
+
+
 
 export default function Home() {
 
@@ -14,7 +70,8 @@ export default function Home() {
 
 
   return (
-    <div className="flex relative w-screen h-screen items-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex flex-col relative w-screen  items-center bg-zinc-50 font-sans dark:bg-black
+    overflow-y-scroll">
 
 
       {
@@ -25,7 +82,7 @@ export default function Home() {
 
 
       {/* Main content container */}
-      <div className="w-full h-full">
+      <div className="w-full h-screen ">
         <Navbar />
 
         {/* Main section content */}
@@ -107,12 +164,7 @@ export default function Home() {
 
           </div>
 
-          {/*Pricing Section*/}
-          {
-            //<div className="w-full h-[500px] border">
 
-            //</div>
-          }
 
 
 
@@ -120,6 +172,34 @@ export default function Home() {
 
 
       </div>
+
+
+      {/*Pricing Section*/}
+      {
+        <div className="w-full h-screen">
+
+          <main className="w-full h-full lg:p-4 flex flex-col items-center justify-center">
+
+            <div className="w-[95%] h-[90%] flex-col flex items-center justify-between">
+
+              <h1 className="lg:text-5xl">Choose a perfect plan base on your needs</h1>
+              <p>(One-time payment)</p>
+              <div className="w-full h-[420px] flex flex-col md:flex-row justify-center items-stretch gap-8 md:gap-10 lg:gap-16">
+
+
+                <PricingCard cardProps={freeTier} />
+                <PricingCard cardProps={miniTier} />
+                <PricingCard cardProps={proTier} />
+
+
+              </div>
+
+
+            </div>
+
+          </main>
+        </div>
+      }
 
 
 
