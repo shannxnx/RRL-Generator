@@ -9,10 +9,9 @@ interface cardProps {
 
 
 
-
 export default function PricingCard({ cardProps }: { cardProps: cardProps }) {
     return <motion.div className="lg:w-[300px] md:w-[300px] md:max-w-[300px] w-[90%] lg:h-full  border bg-black rounded-[15px] flex-col flex cursor-pointer
-  shadow-md"
+  shadow-md h-[420px]"
 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -49,9 +48,7 @@ export default function PricingCard({ cardProps }: { cardProps: cardProps }) {
         </div>
 
         <div className="w-full flex items-center justify-center  ">
-            <button className="w-[170px] h-[60px] rounded border p-3 bg-white"
-
-            >
+            <button className="w-[170px] h-[60px] rounded border p-3 bg-white cursor-pointer">
                 Get Started
             </button>
         </div>
