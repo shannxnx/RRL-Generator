@@ -178,38 +178,7 @@ export default function Home() {
 
       {/*Pricing Section*/}
       {
-        //<div className="w-full h-screen">
 
-        //  {
-        //    <main className="w-full h-full lg:p-4 flex flex-col items-center justify-center">
-
-        //      <div className="w-[95%] h-[90%] flex-col flex items-center justify-between">
-
-        //        <h1 className="lg:text-5xl">Choose a perfect plan base on your needs</h1>
-        //        <p>(One-time payment)</p>
-        //        <div className="w-full h-[420px] flex md:flex-row justify-center items-stretch gap-8 md:gap-10 lg:gap-16
-        //        ">
-
-
-        //          <PricingCard cardProps={freeTier} />
-        //          <PricingCard cardProps={miniTier} />
-        //          <PricingCard cardProps={proTier} />
-
-
-        //        </div>
-
-
-        //      </div>
-
-        //    </main>
-        //  }
-
-
-
-
-
-
-        //</div>
 
         <div className="w-full min-h-screen">
           <main className="w-full h-full p-4 flex flex-col items-center justify-center py-10">
@@ -226,11 +195,6 @@ export default function Home() {
             </div>
           </main>
         </div>
-
-
-
-
-
 
 
 
