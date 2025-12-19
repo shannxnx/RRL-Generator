@@ -8,6 +8,7 @@ import { div } from "motion/react-client";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "motion/react"
+import Footer from "@/components/Footer";
 
 
 interface cardProps {
@@ -303,37 +304,39 @@ export default function Home() {
       }
 
 
+      {
+        // <footer className="w-full h-[200px] border bg-black flex p-5 justify-between">
+        //   <div className="border-1 p-3 w-[300px] h-[90%] border-white rounded">
+        //     <h1 className="text-white lg:text-3xl">Disclaimer</h1>
+        //     <p className="text-white text-[10px]">This tool provides AI-assisted suggestions for
+        //       discovering related academic literature and does not guarantee
+        //       accuracy, completeness, or acceptance by any academic institution. Users are responsible for reviewing, verifying, and properly citing all sources.</p>
+        //   </div>
 
-      <footer className="w-full h-[200px] border bg-black flex p-5 justify-between">
-        <div className="border-1 p-3 w-[300px] h-[90%] border-white rounded">
-          <h1 className="text-white lg:text-3xl">Disclaimer</h1>
-          <p className="text-white text-[10px]">This tool provides AI-assisted suggestions for
-            discovering related academic literature and does not guarantee
-            accuracy, completeness, or acceptance by any academic institution. Users are responsible for reviewing, verifying, and properly citing all sources.</p>
-        </div>
+        //   <div className="p-2 w-[900px] h-[90%]  rounded flex">
+        //     <div className="w-[53%] h-full flex items-end">
+        //       <h1 className="text-white">© 2025 RRL Generator. All rights reserved.</h1>
+        //     </div>
+        //     <div className="w-[13%] h-full">
 
-        <div className="p-2 w-[900px] h-[90%]  rounded flex">
-          <div className="w-[53%] h-full flex items-end">
-            <h1 className="text-white">© 2025 RRL Generator. All rights reserved.</h1>
-          </div>
-          <div className="w-[13%] h-full">
+        //     </div>
 
-          </div>
+        //     <div className="w-[33%] h-full flex flex-col text-white border-white
+        //justify-center text-[16px] pl-10">
+        //       <ul>
+        //         <li className="hover:text-purple-700 duration-200 cursor-pointer">Pricing</li>
+        //         <li className="hover:text-purple-700 duration-200 cursor-pointer">Library</li>
+        //         <li className="hover:text-purple-700 duration-200 cursor-pointer">About</li>
+        //         <li className="hover:text-purple-700 duration-200 cursor-pointer">Contact</li>
 
-          <div className="w-[33%] h-full flex flex-col text-white border-white
-         justify-center text-[16px] pl-10">
-            <ul>
-              <li className="hover:text-purple-700 duration-200 cursor-pointer">Pricing</li>
-              <li className="hover:text-purple-700 duration-200 cursor-pointer">Library</li>
-              <li className="hover:text-purple-700 duration-200 cursor-pointer">About</li>
-              <li className="hover:text-purple-700 duration-200 cursor-pointer">Contact</li>
+        //       </ul>
+        //     </div>
+        //   </div>
 
-            </ul>
-          </div>
-        </div>
+        // </footer>
+      }
 
-      </footer>
-
+      <Footer />
 
 
 
