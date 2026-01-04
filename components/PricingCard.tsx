@@ -10,7 +10,8 @@ interface cardProps {
 export default function PricingCard({ cardProps }: { cardProps: cardProps }) {
     return (
         <motion.div
-            className="w-full max-w-[350px] mx-auto h-[450px] border bg-black rounded-[15px] flex flex-col cursor-pointer shadow-md"
+
+            className="w-full max-w-[350px] mx-auto h-[450px] bg-black rounded-[15px] flex flex-col cursor-pointer shadow-md"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -22,6 +23,7 @@ export default function PricingCard({ cardProps }: { cardProps: cardProps }) {
                 transition: { type: "spring", stiffness: 300, damping: 20 }
             }}
             whileTap={{ scale: 0.98 }}
+
         >
             <div className="w-full h-16 border-b border-white bg-white rounded-tl-[15px] rounded-tr-[15px] flex items-center justify-center">
                 <h1 className="text-2xl font-semibold">{cardProps.tier}</h1>

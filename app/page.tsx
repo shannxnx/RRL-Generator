@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion } from "motion/react"
 import Footer from "@/components/Footer";
+import Contacts from "@/components/Contacts";
 
 
 interface cardProps {
@@ -23,23 +24,25 @@ const freeTier: cardProps = {
   tier: 'Free',
   price: '0',
   benefits: [
-    ' 🔍 5 RRL searches every 3 days',
-    ' 📚 Up to 5 related studies per search',
-    ' 🧠 Basic abstracts only (no AI rewrite)',
-    ' 💾 Save up to 5 studies'
+    '🔍 Unlimited RRL searches',
+    '📚 Up to 5 related studies per search',
+    '📄 View original abstracts from academic sources',
+    '💾 Save up to 5 studies',
+    '🚫 No AI-generated connections or RRL writing'
   ]
 };
+
 
 const miniTier: cardProps = {
   tier: 'Mini',
   price: '2',
   benefits: [
-    ' 🔓 Unlimited RRL searches',
-    ' 📚 Up to 5–10 studies per search',
-    ' 🧠 AI-generated summaries',
-    ' 💾 Save unlimited studies',
-    ' 📄 Copy-ready RRL text'
-
+    '🔓 Unlimited RRL searches',
+    '📚 Up to 10 related studies per search',
+    '🧠 AI-generated relevance connections',
+    '📘 Chapter 2–style RRL draft (concise & structured)',
+    '💾 Save unlimited studies',
+    '📄 Copy-ready, citation-aware RRL text'
   ]
 };
 
@@ -69,7 +72,8 @@ export default function Home() {
 
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName] = useState('Shann Rhey')
+  const [userName] = useState('Shann Rhey');
+  const [loading, setLoading] = useState(false);
 
 
   return (
@@ -84,26 +88,26 @@ export default function Home() {
       }
 
 
-      {/* Main content container */}
+
       <div className="w-full h-screen ">
         <Navbar />
 
-        {/* Main section content */}
+
         <main className="w-full min-h-[calc(vh-72px)] 
         md:h-[calc(100%-72px)] flex flex-col items-center justify-start p-4 md:p-8 lg:justify-center ">
 
-          {/* Wrapper for the two main columns/sections */}
+
           <div className="w-full h-full flex flex-col lg:flex-row md:flex-col mt-10 md:mt-0 lg:mt-0">
 
 
             {
               isLoggedIn ?
-                // Logged-in view: Left column/section
+
                 <div className="w-full lg:w-[50%] md:w-full  h-auto lg:h-full p-0 md:p-4 lg:p-10 flex flex-col gap-6 md:gap-10
                 lg:mt-0 md:mt-0 mt-10 ">
                   <div>
 
-                    {/* Adjusted text size for responsiveness */}
+
                     <h1 className="text-4xl md:text-5xl lg:text-6xl mb-2">Welcome back, {userName}</h1>
                     <h2 className="text-base text-gray-600">
                       Your saved studies and search history are available in your library.</h2>
@@ -156,7 +160,12 @@ export default function Home() {
                 <input className="w-full h-[55px] border p-4 outline-0 rounded" type="text" />
 
               </div>
-              <button className="w-full h-[50px] border p-2 mt-5 rounded cursor-pointer bg-black text-white">Find</button>
+              <button className="w-full h-[50px] border p-2 mt-5 rounded cursor-pointer bg-black text-white">
+                {
+                  loading ? <span className="loading loading-spinner loading:xs" /> : "Find"
+                }
+
+              </button>
 
 
 
@@ -303,38 +312,9 @@ export default function Home() {
         </div>
       }
 
+      {/*Contacts Section*/}
+      <Contacts />
 
-      {
-        // <footer className="w-full h-[200px] border bg-black flex p-5 justify-between">
-        //   <div className="border-1 p-3 w-[300px] h-[90%] border-white rounded">
-        //     <h1 className="text-white lg:text-3xl">Disclaimer</h1>
-        //     <p className="text-white text-[10px]">This tool provides AI-assisted suggestions for
-        //       discovering related academic literature and does not guarantee
-        //       accuracy, completeness, or acceptance by any academic institution. Users are responsible for reviewing, verifying, and properly citing all sources.</p>
-        //   </div>
-
-        //   <div className="p-2 w-[900px] h-[90%]  rounded flex">
-        //     <div className="w-[53%] h-full flex items-end">
-        //       <h1 className="text-white">© 2025 RRL Generator. All rights reserved.</h1>
-        //     </div>
-        //     <div className="w-[13%] h-full">
-
-        //     </div>
-
-        //     <div className="w-[33%] h-full flex flex-col text-white border-white
-        //justify-center text-[16px] pl-10">
-        //       <ul>
-        //         <li className="hover:text-purple-700 duration-200 cursor-pointer">Pricing</li>
-        //         <li className="hover:text-purple-700 duration-200 cursor-pointer">Library</li>
-        //         <li className="hover:text-purple-700 duration-200 cursor-pointer">About</li>
-        //         <li className="hover:text-purple-700 duration-200 cursor-pointer">Contact</li>
-
-        //       </ul>
-        //     </div>
-        //   </div>
-
-        // </footer>
-      }
 
       <Footer />
 
