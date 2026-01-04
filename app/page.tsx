@@ -6,10 +6,11 @@ import SideNav from "@/components/SideNav";
 import { Book, BookA, BookUser, Brain, Clock, Folder, Lock, Settings, User2Icon } from "lucide-react";
 import { div } from "motion/react-client";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react"
 import Footer from "@/components/Footer";
 import Contacts from "@/components/Contacts";
+import axios from "axios";
 
 
 interface cardProps {
@@ -66,14 +67,35 @@ const proTier: cardProps = {
 
 
 
-
-
 export default function Home() {
 
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName] = useState('Shann Rhey');
   const [loading, setLoading] = useState(false);
+  const [researchTitle, setResearchTitle] = useState('');
+
+
+  const [getResearch, setGetResearch] = useState();
+
+
+  const handleSubmit = async () => {
+    try {
+      const res = await axios.get("/api/papers", {
+        params: { query: researchTitle }
+      });
+
+      console.log("Response: ", res.data.data)
+    } catch (error) {
+      console.log("Error : ", error);
+    }
+
+
+  };
+
+  const handleResearchTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setResearchTitle(e.target.value);
+  }
 
 
   return (
@@ -157,10 +179,12 @@ export default function Home() {
 
               <div className="flex flex-col w-full  md:items-center md:flex md:justify-center">
                 <h1 className="text-xl md:text-2xl mb-2 ">Enter your research title: </h1>
-                <input className="w-full h-[55px] border p-4 outline-0 rounded" type="text" />
+                <input className="w-full h-[55px] border p-4 outline-0 rounded" type="text"
+                  value={researchTitle} onChange={handleResearchTitle} />
 
               </div>
-              <button className="w-full h-[50px] border p-2 mt-5 rounded cursor-pointer bg-black text-white">
+              <button className="w-full h-[50px] border p-2 mt-5 rounded cursor-pointer bg-black text-white"
+                onClick={handleSubmit}>
                 {
                   loading ? <span className="loading loading-spinner loading:xs" /> : "Find"
                 }
