@@ -92,16 +92,20 @@ function ContactForm() {
 
 export default function Contacts() {
     return (
-        <div className='w-full min-h-screen  py-12'>
-            <div className='max-w-2xl mx-auto'>
+        <div className='w-full min-h-screen  py-12 border-t '>
+            <div className='max-w-2xl mx-auto  '>
+
+
                 <div className='text-center mb-8'>
                     <h1 className='text-3xl text-gray-900 mb-2'>Get in Touch</h1>
                     <p className='text-gray-600'>We'd love to hear from you. Send us a message!</p>
                 </div>
-                <div className=' rounded-xl shadow-sm'>
+                <div className=' rounded-xl shadow-sm '>
                     <ContactForm />
                 </div>
             </div>
+
+
         </div>
     );
 }

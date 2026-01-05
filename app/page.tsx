@@ -3,7 +3,7 @@
 import Navbar from "@/components/Navbar";
 import PricingCard from "@/components/PricingCard";
 import SideNav from "@/components/SideNav";
-import { Book, BookA, BookUser, Brain, Clock, Folder, Lock, Settings, User2Icon } from "lucide-react";
+import { ArrowRight, Book, BookA, BookUser, Brain, Clock, Folder, Lock, Settings, User2Icon } from "lucide-react";
 import { div } from "motion/react-client";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -111,7 +111,7 @@ export default function Home() {
 
 
 
-      <div className="w-full h-screen ">
+      <div className="w-full h-screen">
         <Navbar />
 
 
@@ -156,16 +156,14 @@ export default function Home() {
                   <div>
 
 
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl mb-2">Find Related Literature in Seconds</h1>
+                    <h1 className="text-4xl md:text-5xl lg:text-7xl mb-2">Helps With Your Literature Review</h1>
                     <h2 className="text-base text-gray-600">
                       Generate credible, research-based related literature from academic sources using your research title.</h2>
 
                   </div>
 
 
-                  <div className="w-[150px] h-[50px] border flex items-center justify-center rounded bg-black">
-                    <h1 className="text-2xl text-white cursor-pointer">Try now!</h1>
-                  </div>
+
 
                 </div>
             }
@@ -183,10 +181,11 @@ export default function Home() {
                   value={researchTitle} onChange={handleResearchTitle} />
 
               </div>
-              <button className="w-full h-[50px] border p-2 mt-5 rounded cursor-pointer bg-black text-white"
+              <button className="w-full h-[50px] border p-2 mt-5 rounded cursor-pointer bg-black text-white
+              flex justify-center items-center"
                 onClick={handleSubmit}>
                 {
-                  loading ? <span className="loading loading-spinner loading:xs" /> : "Find"
+                  loading ? <span className="loading loading-spinner loading:xs" /> : <ArrowRight />
                 }
 
               </button>
@@ -241,7 +240,7 @@ export default function Home() {
           <div className="w-full  flex items-center justify-center p-10
           flex-col text-justify   lg:items-start">
             <h1 className="text-6xl mt-10 lg">Why use our tool?</h1>
-            <p className="text-justify mt-5 ">
+            <p className="text-justify mt-5 text-2xl ">
               Our platform helps students and researchers save time
               by quickly identifying relevant academic literature based on their
               research title. By sourcing studies from credible scholarly databases
@@ -252,7 +251,7 @@ export default function Home() {
 
 
           <div className="p-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 w-[90%] max-w-7xl mx-auto">
-            <motion.div className="border w-full h-[170px] flex flex-col items-center justify-center bg-black rounded"
+            <motion.div className="border-2 w-full h-[170px] flex flex-col items-center justify-center rounded"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0 }}
@@ -260,53 +259,53 @@ export default function Home() {
               whileTap={{ scale: 0.95 }}
 
             >
-              <Clock className="text-violet-700 size-[150px]" />
-              <h1 className="text-[16px] text-white">Save Hours of Time</h1>
+              <Clock className="text-black size-[150px]" />
+              <h1 className="text-[16px] text-black">Save Hours of Time</h1>
             </motion.div>
 
-            <motion.div className="border w-full h-[170px] flex flex-col items-center justify-center bg-black rounded"
+            <motion.div className="border-2 w-full h-[170px] flex flex-col items-center justify-center  rounded"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0 }}
               whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(139, 92, 246, 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <BookA className="text-violet-700 size-[150px]" />
-              <h1 className="text-[16px] text-white">Credible Academic Sources</h1>
+              <BookA className="text-black size-[150px]" />
+              <h1 className="text-[16px] text-black">Credible Academic Sources</h1>
             </motion.div>
 
 
-            <motion.div className="border w-full h-[170px] flex flex-col items-center justify-center bg-black rounded"
+            <motion.div className="border-2 w-full h-[170px] flex flex-col items-center justify-cente rounded"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0 }}
               whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(139, 92, 246, 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <Brain className="text-violet-700 size-[150px]" />
-              <h1 className="text-[16px] text-white">AI-Assisted Summaries</h1>
+              <Brain className="text-black size-[150px]" />
+              <h1 className="text-[16px] text-black">AI-Assisted Text</h1>
             </motion.div>
 
-            <motion.div className="border w-full h-[170px] flex flex-col items-center justify-center bg-black rounded"
+            <motion.div className="border-2 w-full h-[170px] flex flex-col items-center justify-center rounded"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0 }}
               whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(139, 92, 246, 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <Folder className="text-violet-700 size-[150px]" />
-              <h1 className="text-[16px] text-white">Personal Research Library</h1>
+              <Folder className="text-black size-[150px]" />
+              <h1 className="text-[16px] text-black">Personal Research Library</h1>
             </motion.div>
 
-            <motion.div className="border w-full h-[170px] flex flex-col items-center justify-center bg-black rounded"
+            <motion.div className="border-2 w-full h-[170px] flex flex-col items-center justify-center rounded"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0 }}
               whileHover={{ scale: 1.05, boxShadow: "0 20px 50px rgba(139, 92, 246, 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <Lock className="text-violet-700 size-[150px]" />
-              <h1 className="text-[16px] text-white">Secure & Private</h1>
+              <Lock className="text-black size-[150px]" />
+              <h1 className="text-[16px] text-black">Secure & Private</h1>
             </motion.div>
           </div>
 
@@ -315,7 +314,7 @@ export default function Home() {
             <div>
               <h1 className="text-6xl">Built for Academic Research</h1>
 
-              <p className="">
+              <p className="text-2xl">
                 This platform assists users by suggesting relevant academic literature based on research topics.
                 All results are sourced from publicly available scholarly databases and should be verified before submission.
               </p>

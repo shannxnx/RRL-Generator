@@ -56,7 +56,7 @@ export default function Footer() {
                 <div className="mt-8 pt-6 border-t border-gray-800">
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                         <p className="text-gray-400 text-sm lg:text-base text-center sm:text-left">
-                            © 2025 RRL Generator. All rights reserved.
+                            © 2026 RRL Generator. All rights reserved.
                         </p>
                         <div className="flex gap-6">
                             <a href="#privacy" className="text-gray-400 hover:text-purple-400 text-sm lg:text-base transition-colors duration-200">
